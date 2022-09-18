@@ -37,7 +37,7 @@ data_iris_aux.drop(["Species"], axis=1, inplace=True)
 x = data_iris_aux.drop(["species"],axis=1) #ingresamos las variables utilizadas para predecir la variable objetivo en una variable
 y = data_iris["species"] #pasamos nuestra variable objetivo "y" a una variable de lista
 
-regresionLog = LogisticRegression(max_iter=600)
+regresionLog = LogisticRegression(fit_intercept=True, penalty='l2', tol=1e-5, C=0.8, solver='lbfgs', max_iter=600)
 x_entren, x_prueba, y_entren, y_prueba = train_test_split(x, y, test_size = 0.33, random_state = 42, stratify=y) #con la funcion de train_test_split generamos nuestras muestras 
 #de datos a utilizar tanto para el entrenamiento del modelo de regresion logistica como la muestra de prueba para la comparacion y verificacion de precision del modelo
 
